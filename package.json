@@ -1,0 +1,33 @@
+{
+  "name": "elastic-product-search",
+  "version": "1.0.0",
+  "description": "A lightweight Node.js and Elasticsearch-based backend for e-commerce product search. Supports product indexing and fast, relevance-ranked keyword search with optional caching, fuzzy matching, and query analytics.",
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx ./src/server.ts",
+    "dev": "npx tsx watch ./src/server.ts"
+  },
+  "author": "Thanos Piplikatsis",
+  "license": "MIT",
+  "dependencies": {
+    "@elastic/elasticsearch": "^9.2.0",
+    "@faker-js/faker": "^9.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "morgan": "^1.10.1",
+    "node-ts": "^6.1.3",
+    "nodemon": "^3.1.10",
+    "nodemon-ts": "^1.0.1",
+    "redis": "^5.9.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.10.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

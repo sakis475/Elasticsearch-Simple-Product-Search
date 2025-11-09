@@ -1,0 +1,54 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.2.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      # - xpack.security.http.ssl.enabled=false
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+    ports:
+      # Port for Elasticsearch API
+      - "9200:9200"
+    volumes:
+      # Persist Elasticsearch data
+      - esdata:/usr/share/elasticsearch/data
+    networks:
+      - elk-net
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:9.2.0
+    container_name: kibana
+    environment:
+      # URL of the Elasticsearch instance
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      # Port for Kibana UI
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - elk-net
+
+  redis:
+    image: redis:7.2.4
+    container_name: redis-cache
+    ports:
+      - "6370:6379"
+    volumes:
+      - redisdata:/data
+    networks:
+      - elk-net
+
+volumes:
+  # Volume for Elasticsearch data
+  esdata:
+    driver: local
+  # Volume for Redis data
+  redisdata:
+    driver: local
+
+networks:
+  # Custom network for container communication
+  elk-net:
+    driver: bridge
