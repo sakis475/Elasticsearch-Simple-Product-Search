@@ -130,7 +130,7 @@ This project follows a Layered Architecture structure, separating responsibiliti
 
 ## Assumptions
 
-1. There will be a single index named products.
+1. For simplicity, the app currently supports only one store, as there’s no logic implemented to separate multiple stores.
 
 2. Clients are expected to send product data in a specific predefined format.
 
@@ -140,6 +140,8 @@ This project follows a Layered Architecture structure, separating responsibiliti
    In the future, a client-specific configuration may allow customization of default result limits or inclusion of an optional query parameter to modify this behavior.
 
 5. Clients are responsible for handling errors gracefully and must be informed of all possible outcomes (e.g., no results found, bad requests, server error).
+
+6. There will be a single index named products.
 
 ## License
 
