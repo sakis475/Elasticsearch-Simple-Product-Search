@@ -206,3 +206,28 @@ export const deleteDocumentById = async (
     throw err;
   }
 };
+
+/**
+ * Deletes all documents from a given index.
+ * @param {string} indexName - The index to delete all documents from.
+ * @returns {Promise<any>} - The response from Elasticsearch.
+ */
+export const deleteAllDocuments = async (indexName: string): Promise<any> => {
+  if (!indexName) {
+    throw new Error("Index name is required.");
+  }
+
+  try {
+    const result = await getClient().deleteByQuery({
+      index: indexName,
+      query: {
+        match_all: {},
+      },
+      refresh: true,
+    });
+    return result;
+  } catch (err: unknown) {
+    console.error("Error deleting all documents:", err);
+    throw err;
+  }
+};
