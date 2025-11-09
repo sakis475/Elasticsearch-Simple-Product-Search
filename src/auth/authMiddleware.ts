@@ -8,7 +8,9 @@ export const basicAuthMiddleware = (
   next: NextFunction
 ) => {
   const token = req?.headers?.authorization?.split(" ")?.[1];
-
+  if (process.env.ENV === "dev" && !process.env.API_KEY) {
+    return next();
+  }
   if (
     req?.headers?.authorization?.startsWith("Bearer") &&
     token === process.env.API_KEY
