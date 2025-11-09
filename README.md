@@ -40,6 +40,14 @@ A lightweight Node.js and Elasticsearch-based backend for e-commerce product sea
 
    Edit `.env` to set your API key, ports, and Elasticsearch/Redis hosts.
 
+4. **Create logs folder**
+
+   Add a folder to keep the logs of the server
+
+   ```sh
+   mkdir logs
+   ```
+
 ## Running the Stack
 
 1. **Start Elasticsearch, Redis, and Kibana using Docker Compose:**
