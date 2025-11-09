@@ -10,7 +10,7 @@ export async function getProductResults(
 ) {
   let query = req.query.q as string;
   if (!query || typeof query !== "string" || query.trim().length === 0) {
-    return [];
+    return res.json([]);
   }
 
   if (query.trim().length > 512) {
