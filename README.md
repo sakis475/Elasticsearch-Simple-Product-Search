@@ -22,8 +22,8 @@ A lightweight Node.js and Elasticsearch-based backend for e-commerce product sea
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/elastic-product-search.git
-   cd elastic-product-search
+   git clone https://github.com/sakis475/Elasticsearch-Simple-Product-Search.git
+   cd Elasticsearch-Simple-Product-Search
    ```
 
 2. **Install dependencies:**
