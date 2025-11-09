@@ -35,7 +35,6 @@ export async function addRandomProductsToIndex(
 
   const docs = products.map((product) => ({
     document: product,
-    id: product.id,
   }));
 
   const result = await elasticLib.bulkIndexDocuments(indexName, docs);

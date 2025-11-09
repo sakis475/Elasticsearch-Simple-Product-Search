@@ -82,17 +82,15 @@ export const indexDocument = async (
  */
 export const bulkIndexDocuments = async (
   indexName: string,
-  docs: Array<{ document: Record<string, any>; id?: string }>
+  docs: Array<{ document: Record<string, any> }>
 ): Promise<any> => {
   if (!indexName || !Array.isArray(docs) || docs.length === 0) {
     throw new Error("Index name and non-empty docs array are required.");
   }
 
   // Prepare bulk body: action/metadata line, then document line
-  const body = docs.flatMap(({ document, id }) => [
-    id
-      ? { index: { _index: indexName, _id: id } }
-      : { index: { _index: indexName } },
+  const body = docs.flatMap(({ document }) => [
+    { index: { _index: indexName } },
     document,
   ]);
 
