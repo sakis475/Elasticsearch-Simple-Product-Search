@@ -16,7 +16,7 @@ export async function indexProducts(
         typeof product.id !== "string" ||
         typeof product.title !== "string" ||
         typeof product.description !== "string" ||
-        typeof product.price !== "number" ||
+        typeof product.price !== "string" ||
         typeof product.category !== "string" ||
         !product.id.trim() ||
         !product.title.trim() ||
