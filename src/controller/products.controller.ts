@@ -30,7 +30,10 @@ export async function indexProducts(
   }
 
   try {
-    await bulkIndexDocuments("products", req.body);
+    const docs = req.body.map((product) => ({
+      document: product,
+    }));
+    await bulkIndexDocuments("products", docs);
     res.status(200).send();
   } catch (error) {
     next(error);
